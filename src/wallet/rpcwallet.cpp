@@ -481,10 +481,9 @@ UniValue z_embedstring(const UniValue& params, bool fHelp)
     std::string string_to_embed = params[0].get_str();
     std::vector<unsigned char> bytes_to_embed(string_to_embed.begin(), string_to_embed.end());
 
-    // Amount
     // TODO: Are zero-valued TXOUTs disallowed by consensus, or can we safely
     // remove the 'amount' from this RPC and always have zero-value TXOUT?
-    //CAmount nAmount = AmountFromValue(params[1]);
+    CAmount nAmount = AmountFromValue(params[1]);
     //if (nAmount <= 0)
     //    throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount for send");
     // Daira says they are supported, -- Duke
